@@ -12,11 +12,13 @@ import Login from "./features/auth/Login";
 import SignUp from "./features/auth/Signup";
 import { getIsAuthenticated } from "./features/user/userSlice";
 import MyPlayList from "./features/song/MyPlayList";
+import Navbar from "./features/pages/Navbar";
 function App() {
   const isAuthenticated = useSelector(getIsAuthenticated);
   console.log(isAuthenticated);
   return (
     <Router>
+      <Navbar/>
       <h1>Music Manager</h1>
       <Routes>
         <Route path="/musiclist" element={<SongList />} />
