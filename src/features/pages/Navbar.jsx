@@ -7,6 +7,7 @@ const Navbar = () => {
       <Link to={"/musiclist"}>Home</Link>
       <Link to={"/addsong"}>Add Song</Link>
       <Link to={"/myplaylist"}>My Playlist</Link>
+      <Link to={"/"}>Log Out</Link>
     </div>
   );
 };
