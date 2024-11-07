@@ -4,7 +4,6 @@ import bcrypt from "bcryptjs";
 import {
   addNewUserSuccess,
   addNewUserFailure,
-  loginUser,
   loginUserSuccess,
   loginUserFailure,
 } from "./userSlice";
