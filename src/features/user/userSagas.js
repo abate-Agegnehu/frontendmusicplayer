@@ -1,26 +1,21 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import axios from "axios";
-import bcrypt from "bcryptjs";
 import {
   addNewUserSuccess,
   addNewUserFailure,
-  loginUser,
   loginUserSuccess,
   loginUserFailure,
 } from "./userSlice";
 
-const USER_URL = "http://localhost:8888/user";
+const USER_URL = "https://backendmusicplayer.vercel.app/user";
 
 function* addNewUserSaga(action) {
   const { username, email, password } = action.payload;
   try {
-    const salt = bcrypt.genSaltSync(10);
-    const hashedPassword = bcrypt.hashSync(password, salt);
-
     const response = yield call(axios.post, `${USER_URL}/register`, {
       username,
       email,
-      password: hashedPassword,
+      password, 
     });
 
     yield put(addNewUserSuccess(response.data));
@@ -28,10 +23,14 @@ function* addNewUserSaga(action) {
     yield put(addNewUserFailure(error.message));
   }
 }
+
 function* loginUserSaga(action) {
   const { email, password } = action.payload;
   try {
-    const response = yield call(axios.post, `${USER_URL}/login`, { email, password });
+    const response = yield call(axios.post, `${USER_URL}/login`, {
+      email,
+      password,
+    });
 
     if (response.data.isAuthenticated) {
       yield put(loginUserSuccess());
@@ -43,8 +42,7 @@ function* loginUserSaga(action) {
   }
 }
 
-
 export function* watchUserSagas() {
   yield takeLatest("users/addNewUser", addNewUserSaga);
-  yield takeLatest("users/loginUser", loginUserSaga); 
+  yield takeLatest("users/loginUser", loginUserSaga);
 }

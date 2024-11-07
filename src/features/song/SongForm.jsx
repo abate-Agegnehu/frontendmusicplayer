@@ -23,7 +23,7 @@ const SongForm = () => {
       setEmail(storedEmail); 
       console.log(email)
     }
-  }, []);
+  }, [email]);
 
   const canSave =
     [title, artist, video].every(Boolean) && addRequestStatus === "idle";

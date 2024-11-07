@@ -6,9 +6,9 @@ import { updateSong, selectAllSongs } from "./songSlice";
 const EditSongs = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { id } = useParams(); // Get the song ID from the URL
-  const songs = useSelector(selectAllSongs); // Get all songs from the Redux store
-  const song = songs.find((song) => song._id === id); // Find the specific song by ID
+  const { id } = useParams(); 
+  const songs = useSelector(selectAllSongs); 
+  const song = songs.find((song) => song._id === id); 
 
   const [title, setTitle] = useState(song?.title || "");
   const [artist, setArtist] = useState(song?.artist || "");
@@ -26,7 +26,7 @@ const EditSongs = () => {
       dispatch(
         updateSong({ songId: song._id, title, artist, video: song.avatar })
       );
-      navigate("/");
+      navigate("/myplaylist");
     }
   };
 

@@ -41,7 +41,7 @@ const MyPlayList = () => {
   const handleVideoDelete = (songId) => {
     console.log(songId);
     dispatch(deleteSong({ songId }));
-    navigate("/");
+    navigate("/myplaylist");
   };
 
   let content;
