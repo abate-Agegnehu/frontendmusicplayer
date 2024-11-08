@@ -1,21 +1,21 @@
-/** @jsxImportSource @emotion/react */
 import React from "react";
-import styled from "@emotion/styled";
-
-const FooterContainer = styled.footer`
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 1em;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-`;
 
 const Footer = () => (
-  <FooterContainer>
+  <footer style={styles.footer}>
     <p>&copy; 2024 Music Collection App</p>
-  </FooterContainer>
+  </footer>
 );
+
+const styles = {
+  footer: {
+    position: "fixed",
+    bottom: 0,
+    width: "100%",
+    padding: "1em",
+    backgroundColor: "#333",
+    color: "#fff",
+    textAlign: "center",
+  },
+};
 
 export default Footer;

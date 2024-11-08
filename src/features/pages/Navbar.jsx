@@ -1,39 +1,36 @@
-/** @jsxImportSource @emotion/react */
 import React from "react";
 import { Link } from "react-router-dom";
-import styled from "@emotion/styled";
-
-const NavbarContainer = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  padding: 1em;
-  background-color: #333;
-  color: #fff;
-`;
-
-const LinksContainer = styled.div`
-  display: flex;
-`;
-
-const NavbarLink = styled(Link)`
-  margin: 0 10px;
-  color: #fff;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
 
 const Navbar = () => (
-  <NavbarContainer>
+  <nav style={styles.navbar}>
     <h1>Music Collection</h1>
-    <LinksContainer>
-      <NavbarLink to="/musiclist">Home</NavbarLink>
-      <NavbarLink to="/myplaylist">My Playlist</NavbarLink>
-      <NavbarLink to="/addsong">Add Song</NavbarLink>
-    </LinksContainer>
-  </NavbarContainer>
+    <div>
+      <Link to="/musiclist" style={styles.link}>
+        Home
+      </Link>
+      <Link to="/myplaylist" style={styles.link}>
+        My Playlist
+      </Link>
+      <Link to="/addsong" style={styles.link}>
+        Add Song
+      </Link>
+    </div>
+  </nav>
 );
+
+const styles = {
+  navbar: {
+    display: "flex",
+    justifyContent: "space-between",
+    padding: "1em",
+    backgroundColor: "#333",
+    color: "#fff",
+  },
+  link: {
+    margin: "0 10px",
+    color: "#fff",
+    textDecoration: "none",
+  },
+};
 
 export default Navbar;
