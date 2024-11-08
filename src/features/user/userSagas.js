@@ -6,8 +6,6 @@ import {
   loginUserSuccess,
   loginUserFailure,
 } from "./userSlice";
-
-// const USER_URL = "https://backendmusicplayer.vercel.app/user";
 const USER_URL = "https://backendmusicplayer-production.up.railway.app/music";
 
 function* addNewUserSaga(action) {
