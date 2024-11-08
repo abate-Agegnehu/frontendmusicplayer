@@ -11,8 +11,7 @@ import {
   updateSongFailure,
 } from "./songSlice";
 
-// const SONG_URL = "https://backendmusicplayer.vercel.app/music";
-const SONG_URL = "http://localhost:9999/music";
+const SONG_URL = "https://backendmusicplayer.vercel.app/music";
 
 
 
