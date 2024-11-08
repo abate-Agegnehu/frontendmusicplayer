@@ -12,11 +12,15 @@ const EditSongs = () => {
 
   const [title, setTitle] = useState(song?.title || "");
   const [artist, setArtist] = useState(song?.artist || "");
+  const [email, setEmail] = useState(song?.email||"");
+
 
   useEffect(() => {
     if (song) {
       setTitle(song.title);
       setArtist(song.artist);
+      setEmail(song.email)
+      
     }
   }, [song]);
 
@@ -24,7 +28,7 @@ const EditSongs = () => {
     e.preventDefault();
     if (song) {
       dispatch(
-        updateSong({ songId: song._id, title, artist, video: song.avatar })
+        updateSong({ songId: song._id, title, artist,email, video: song.avatar })
       );
       navigate("/myplaylist");
     }
