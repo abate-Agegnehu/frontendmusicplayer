@@ -7,7 +7,8 @@ import {
   loginUserFailure,
 } from "./userSlice";
 
-const USER_URL = "https://backendmusicplayer.vercel.app/user";
+// const USER_URL = "https://backendmusicplayer.vercel.app/user";
+const USER_URL = "https://backendmusicplayer-production.up.railway.app/music";
 
 function* addNewUserSaga(action) {
   const { username, email, password } = action.payload;
@@ -15,7 +16,7 @@ function* addNewUserSaga(action) {
     const response = yield call(axios.post, `${USER_URL}/register`, {
       username,
       email,
-      password, 
+      password,
     });
 
     yield put(addNewUserSuccess(response.data));

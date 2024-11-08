@@ -1,35 +1,65 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
-import { useSelector } from "react-redux";
-import SongForm from "./features/song/SongForm";
-import SongList from "./features/song/SongList";
-import EditSong from "./features/song/EditSong";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./features/auth/Login";
-import SignUp from "./features/auth/Signup";
-import { getIsAuthenticated } from "./features/user/userSlice";
+import Signup from "./features/auth/Signup";
 import MyPlayList from "./features/song/MyPlayList";
+import SongForm from "./features/song/SongForm";
+import EditSongs from "./features/song/EditSong";
+import SongList from "./features/song/SongList";
 import Navbar from "./features/pages/Navbar";
-function App() {
-  const isAuthenticated = useSelector(getIsAuthenticated);
-  console.log(isAuthenticated);
+import Footer from "./features/pages/Footer";
+
+const App = () => {
   return (
     <Router>
-      <Navbar/>
-      <h1>Music Manager</h1>
-      <Routes>
-        <Route path="/musiclist" element={<SongList />} />
-        <Route path="/" element={<Login/>} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/addsong" element={<SongForm />} />
-        <Route path="/editsong/:id" element={<EditSong />} />
-        <Route path="/myplaylist"  element={<MyPlayList/>}/>
-      </Routes>
+      <div>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/musiclist"
+            element={
+              <>
+                <Navbar />
+                <SongList />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/myplaylist"
+            element={
+              <>
+                <Navbar />
+                <MyPlayList />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/addsong"
+            element={
+              <>
+                <Navbar />
+                <SongForm />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/editsong/:id"
+            element={
+              <>
+                <Navbar />
+                <EditSongs />
+                <Footer />
+              </>
+            }
+          />
+        </Routes>
+      </div>
     </Router>
   );
-}
+};
 
 export default App;
