@@ -1,36 +1,51 @@
+/** @jsxImportSource @emotion/react */
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "@emotion/styled";
+import { space, layout, color, typography, flexbox } from "styled-system";
 
 const Navbar = () => (
-  <nav style={styles.navbar}>
-    <h1>Music Collection</h1>
-    <div>
-      <Link to="/musiclist" style={styles.link}>
-        Home
-      </Link>
-      <Link to="/myplaylist" style={styles.link}>
-        My Playlist
-      </Link>
-      <Link to="/addsong" style={styles.link}>
-        Add Song
-      </Link>
-    </div>
-  </nav>
+  <StyledNav>
+    <Title>Music Collection</Title>
+    <NavLinks>
+      <StyledLink to="/musiclist">Home</StyledLink>
+      <StyledLink to="/myplaylist">My Playlist</StyledLink>
+      <StyledLink to="/addsong">Add Song</StyledLink>
+    </NavLinks>
+  </StyledNav>
 );
 
-const styles = {
-  navbar: {
-    display: "flex",
-    justifyContent: "space-between",
-    padding: "1em",
-    backgroundColor: "#333",
-    color: "#fff",
-  },
-  link: {
-    margin: "0 10px",
-    color: "#fff",
-    textDecoration: "none",
-  },
-};
+// Styled components with Styled System
+const StyledNav = styled.nav`
+  ${flexbox}
+  ${space}
+  ${color}
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  background-color: #333;
+  color: #fff;
+`;
+
+const Title = styled.h1`
+  ${typography}
+  margin: 0;
+`;
+
+const NavLinks = styled.div`
+  ${flexbox}
+  display: flex;
+`;
+
+const StyledLink = styled(Link)`
+  ${space}
+  ${color}
+  margin: 0 10px;
+  color: #fff;
+  text-decoration: none;
+  &:hover {
+    color: #ccc;
+  }
+`;
 
 export default Navbar;
