@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
-import { space, layout, color, typography, flexbox } from "styled-system";
+import { space, color, typography, flexbox } from "styled-system";
 
 const Navbar = () => (
   <StyledNav>
