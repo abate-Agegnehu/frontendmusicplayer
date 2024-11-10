@@ -1,7 +1,67 @@
+/** @jsxImportSource @emotion/react */
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addNewUser } from "../user/userSlice";
 import { useNavigate } from "react-router-dom";
+import styled from "@emotion/styled";
+
+const Container = styled("div")({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "100vh",
+  width: "100%",
+  backgroundColor: "#f4f4f4",
+});
+
+const FormContainer = styled("div")({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  padding: "2rem",
+  border: "1px solid #ddd",
+  borderRadius: "8px",
+  width: "100%",
+  maxWidth: "400px",
+  margin: "0 auto",
+  backgroundColor: "#fff",
+});
+
+const Input = styled("input")({
+  marginBottom: "1rem",
+  padding: "0.75rem",
+  fontSize: "1rem",
+  width: "100%",
+  border: "1px solid #ccc",
+  borderRadius: "4px",
+  "&:focus": {
+    borderColor: "#007BFF",
+    outline: "none",
+  },
+});
+
+const Button = styled("button")({
+  padding: "0.7rem 1.5rem",
+  fontSize: "1rem",
+  cursor: "pointer",
+  backgroundColor: "#007BFF",
+  color: "#fff",
+  border: "none",
+  borderRadius: "4px",
+  "&:hover": {
+    backgroundColor: "#0056b3",
+  },
+  "&:disabled": {
+    backgroundColor: "#cccccc",
+    cursor: "not-allowed",
+  },
+});
+
+const ErrorMessage = styled("p")({
+  color: "red",
+  fontSize: "1rem",
+  marginBottom: "1rem",
+});
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -9,57 +69,56 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
 
-  const handleSubmit =(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-       dispatch(
-        addNewUser({ username, email, password })
-      );
-       navigate("/");
+      await dispatch(addNewUser({ username, email, password }));
+      navigate("/login"); // Redirect to login after successful signup
     } catch (err) {
       console.error("Signup failed:", err);
+      setError("Failed to sign up. Please try again.");
     }
   };
 
   return (
-    <div>
-      <h2>Signup</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username</label>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="Enter your username"
-            required
-          />
-        </div>
-        <div>
-          <label>Email</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            required
-          />
-        </div>
-        <div>
-          <label>Password</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter your password"
-            required
-          />
-        </div>
-        <button type="submit">Sign Up</button>
-      </form>
-    </div>
+    <Container>
+      <FormContainer>
+        <h2>Signup</h2>
+        {error && <ErrorMessage>{error}</ErrorMessage>}
+        <form onSubmit={handleSubmit}>
+          <div>
+            <Input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Enter your username"
+              required
+            />
+          </div>
+          <div>
+            <Input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div>
+            <Input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          <Button type="submit">Sign Up</Button>
+        </form>
+      </FormContainer>
+    </Container>
   );
 };
 

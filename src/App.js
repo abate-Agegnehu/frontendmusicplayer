@@ -8,56 +8,55 @@ import EditSongs from "./features/song/EditSong";
 import SongList from "./features/song/SongList";
 import Navbar from "./features/pages/Navbar";
 import Footer from "./features/pages/Footer";
+import "./App.css";
 
 const App = () => {
   return (
     <Router>
-      <div>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route
-            path="/musiclist"
-            element={
-              <>
-                <Navbar />
-                <SongList />
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/myplaylist"
-            element={
-              <>
-                <Navbar />
-                <MyPlayList />
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/addsong"
-            element={
-              <>
-                <Navbar />
-                <SongForm />
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/editsong/:id"
-            element={
-              <>
-                <Navbar />
-                <EditSongs />
-                <Footer />
-              </>
-            }
-          />
-        </Routes>
-      </div>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route
+              path="/musiclist"
+              element={
+                <>
+                  <Navbar />
+                  <SongList />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/myplaylist"
+              element={
+                <>
+                  <Navbar />
+                  <MyPlayList />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/addsong"
+              element={
+                <>
+                  <Navbar />
+                  <SongForm />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/editsong/:id"
+              element={
+                <>
+                  <Navbar />
+                  <EditSongs />
+                  <Footer />
+                </>
+              }
+            />
+          </Routes>
     </Router>
   );
 };
