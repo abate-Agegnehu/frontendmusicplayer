@@ -68,7 +68,6 @@ const ButtonContainer = styled("div")({
 });
 const Button = styled("button")(({ variant }) => ({
   padding: "0.5rem 1rem",
-  border: "none",
   borderRadius: "4px",
   cursor: "pointer",
   fontSize: "14px",
@@ -86,7 +85,7 @@ const Button = styled("button")(({ variant }) => ({
       variant === "delete"
         ? "#c82333"
         : variant === "update"
-        ? "#0056b3"
+        ? "transparent" // Adjusting hover background for update
         : "#0056b3",
   },
 }));
