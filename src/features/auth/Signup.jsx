@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { addNewUser } from "../user/userSlice";
 import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
-
 const Container = styled("div")({
   display: "flex",
   justifyContent: "center",
