@@ -37,7 +37,7 @@ const StyledNav = styled.nav`
     rgba(197, 150, 123, 0.6),
     rgba(180, 137, 114, 0.4)
   );
-  color: #fff;
+  color: #4B5D46;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -86,11 +86,11 @@ const StyledLink = styled(Link)`
   ${space}
   ${color}
   margin: 0 10px;
-  color: #fff;
+  color: #4b5d46;
   text-decoration: none;
 
   &:hover {
-    color: #ccc;
+    color: #9e2a2f;
   }
 
   @media (max-width: 768px) {

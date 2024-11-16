@@ -29,6 +29,10 @@ const FormContainer = styled("div")({
     "linear-gradient( rgba(208, 164, 142, 0.4), rgba(197, 150, 123, 0.6), rgba(180, 137, 114, 0.4) )",
 });
 
+const H2 = styled("h2")({
+  color: "#4b5d46",
+});
+
 const Input = styled("input")({
   marginBottom: "1rem",
   padding: "0.75rem",
@@ -87,7 +91,7 @@ const Login = () => {
   return (
     <Container>
       <FormContainer>
-        <h2>Login</h2>
+        <H2>Login</H2>
         {error && <ErrorMessage>{error}</ErrorMessage>}
         <form onSubmit={handleSubmit}>
           <div>

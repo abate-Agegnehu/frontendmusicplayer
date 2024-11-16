@@ -43,7 +43,7 @@ const SongItem = styled("li")({
 const SongTitle = styled("h3")({
   fontSize: "18px",
   marginBottom: "0.5rem",
-  color: "#333",
+  color: "#4b5d46",
 });
 
 const SongArtist = styled("p")({

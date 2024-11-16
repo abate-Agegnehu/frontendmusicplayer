@@ -19,7 +19,7 @@ const FooterContainer = styled.footer`
     rgba(197, 150, 123, 0.6),
     rgba(180, 137, 114, 0.4)
   );
-  color: #fff;
+  color: #4b5d46;
 `;
 
 export default Footer;

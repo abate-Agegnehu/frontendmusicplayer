@@ -24,6 +24,9 @@ const FormContainer = styled("div")({
   maxWidth: "600px",
   margin: "0 auto",
 });
+const H2 = styled("h2")({
+  color: "#4b5d46",
+});
 
 const Input = styled("input")({
   marginBottom: "1rem",
@@ -110,7 +113,7 @@ const onSaveSongClicked = async () => {
   return (
     <Container>
       <FormContainer>
-        <h2>Add a New Song</h2>
+        <H2>Add a New Song</H2>
         {error && <ErrorMessage>{error}</ErrorMessage>}
         <Input
           type="text"
