@@ -25,12 +25,13 @@ const Container = styled("div")(space, layout, color, flexbox, {
 const SongItem = styled("li")({
   display: "block",
   flexDirection: "column",
-  margin: "6px",  
-  height:"250px",
+  margin: "8px",
   padding: "1rem",
   width: "90%",
   border: "1px solid #ddd",
   borderRadius: "8px",
+  background:
+    "linear-gradient(135deg, rgba(192, 160, 128, 0.2), rgba(224, 213, 195, 0.6))",
   "@media (min-width: 576px)": {
     flexDirection: "row",
     maxWidth: "44%",
@@ -186,11 +187,7 @@ const MyPlayList = () => {
     content = <p>Error: {songError}</p>;
   }
 
-  return (
-    <div>
-      {content}
-    </div>
-  );
+  return <div>{content}</div>;
 };
 
 export default MyPlayList;

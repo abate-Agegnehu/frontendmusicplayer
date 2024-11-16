@@ -30,6 +30,8 @@ const SongItem = styled("li")({
   width: "90%",
   border: "1px solid #ddd",
   borderRadius: "8px",
+  background:
+    "linear-gradient(135deg, rgba(192, 160, 128, 0.2), rgba(224, 213, 195, 0.6))",
   "@media (min-width: 576px)": {
     flexDirection: "row",
     maxWidth: "44%",
