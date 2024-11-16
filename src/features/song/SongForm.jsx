@@ -9,7 +9,7 @@ const Container = styled("div")({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  height: "90%",
+  height: "90%", 
   width: "100%",
 });
 
@@ -23,17 +23,13 @@ const FormContainer = styled("div")({
   width: "100%",
   maxWidth: "600px",
   margin: "0 auto",
-  background:
-    "linear-gradient(135deg, rgba(192, 160, 128, 0.6), rgba(224, 213, 195, 0.9))",
-  padding: "1rem",
 });
 
 const Input = styled("input")({
   marginBottom: "1rem",
-  padding: "1rem",
+  padding: "0.5rem",
   fontSize: "1rem",
-  outline:"none",
-  width: "80%",
+  width: "100%",
   border: "1px solid #ccc",
   borderRadius: "4px",
   "&:focus": {
@@ -45,7 +41,7 @@ const Button = styled("button")({
   padding: "0.7rem 1.5rem",
   fontSize: "1rem",
   cursor: "pointer",
-  backgroundColor: "#78B3CE",
+  backgroundColor: "#007BFF",
   color: "#fff",
   border: "none",
   borderRadius: "4px",
@@ -54,7 +50,7 @@ const Button = styled("button")({
     cursor: "not-allowed",
   },
   "&:hover": {
-    backgroundColor: "#E8BCB9",
+    backgroundColor: "#0056b3",
   },
 });
 
@@ -88,26 +84,28 @@ const SongForm = () => {
   const canSave =
     [title, artist, video].every(Boolean) && addRequestStatus === "idle";
 
-  const onSaveSongClicked = async () => {
-    if (canSave) {
-      try {
-        setAddRequestStatus("pending");
+const onSaveSongClicked = async () => {
+  if (canSave) {
+    try {
+      setAddRequestStatus("pending");
 
-        await dispatch(addNewSong({ title, artist, email, video }));
 
-        setTitle("");
-        setArtist("");
-        setVideo(null);
-        setError(null);
-      } catch (error) {
-        console.error("Failed to save song", error);
-        setError("Failed to save song. Please try again.");
-      } finally {
-        setAddRequestStatus("idle");
-        navigate("/musiclist");
-      }
+      await dispatch(addNewSong({ title, artist, email, video }));
+
+      setTitle("");
+      setArtist("");
+      setVideo(null);
+      setError(null);
+    } catch (error) {
+      console.error("Failed to save song", error);
+      setError("Failed to save song. Please try again.");
+    } finally {
+      setAddRequestStatus("idle");
+      navigate("/musiclist");
     }
-  };
+  }
+};
+
 
   return (
     <Container>

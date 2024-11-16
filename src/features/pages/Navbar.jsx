@@ -32,12 +32,7 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1em;
-  background: linear-gradient(
-    rgba(208, 164, 142, 0.1),
-    rgba(197, 150, 123, 1),
-    rgba(180, 137, 114, 0.1)
-  );
-
+  background-color: #333;
   color: #fff;
   position: sticky;
   top: 0;
@@ -87,7 +82,7 @@ const StyledLink = styled(Link)`
   ${space}
   ${color}
   margin: 0 10px;
-  color:#fff;
+  color: #fff;
   text-decoration: none;
 
   &:hover {

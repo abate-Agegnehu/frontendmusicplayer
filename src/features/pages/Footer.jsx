@@ -14,11 +14,7 @@ const FooterContainer = styled.footer`
   justify-content: center;
   align-items: center;
   padding: 0.3em;
-  background: linear-gradient(
-    rgba(208, 164, 142, 0.1),
-    rgba(197, 150, 123, 1),
-    rgba(180, 137, 114, 0.1)
-  );
+  background-color: #333;
   color: #fff;
 `;
 
