@@ -16,8 +16,8 @@ const FooterContainer = styled.footer`
   padding: 0.3em;
   background: linear-gradient(
     rgba(208, 164, 142, 0.4),
-    rgba(197, 150, 123, 0.6),
-    rgba(180, 137, 114, 0.4)
+    rgba(197, 150, 123, 0.4),
+    rgba(180, 137, 114, 0.05)
   );
   color: #4b5d46;
 `;
