@@ -5,16 +5,18 @@ import { loginUser } from "../user/userSlice";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 
+// Container with background video
 const Container = styled("div")({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   height: "100vh",
   width: "100%",
-  background:
-    "linear-gradient( rgba(208, 164, 142, 0.1), rgba(197, 150, 123, 0.2), rgba(180, 137, 114, 0.1) )",
+  position: "relative", // Required to place the video behind the content
+  overflow: "hidden", // To prevent any overflow of video
 });
 
+// Form container styles
 const FormContainer = styled("div")({
   display: "flex",
   flexDirection: "column",
@@ -27,6 +29,7 @@ const FormContainer = styled("div")({
   margin: "0 auto",
   background:
     "linear-gradient( rgba(208, 164, 142, 0.4), rgba(197, 150, 123, 0.6), rgba(180, 137, 114, 0.4) )",
+  zIndex: "1", // Ensure the form is above the video
 });
 
 const H2 = styled("h2")({
@@ -90,6 +93,7 @@ const Login = () => {
 
   return (
     <Container>
+   
       <FormContainer>
         <H2>Login</H2>
         {error && <ErrorMessage>{error}</ErrorMessage>}
