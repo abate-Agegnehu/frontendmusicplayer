@@ -171,10 +171,10 @@ const MyPlayList = () => {
                     variant="delete"
                     onClick={() => handleMediaDelete(song._id)}
                   >
-                    Delete
+                    Remove
                   </Button>
                   <Link to={`/editsong/${song._id}`}>
-                    <Button variant="update">Update</Button>
+                    <Button variant="update">Edit</Button>
                   </Link>
                 </ButtonContainer>
               </SongItem>
