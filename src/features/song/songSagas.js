@@ -11,7 +11,8 @@
     updateSongFailure,
   } from "./songSlice";
 
-  const SONG_URL = "https://backendmusicplayer-production.up.railway.app/music";
+  const SONG_URL =
+    "https://musiccollectionbackend-production-78ae.up.railway.app/music";
 
   function* fetchSongsSaga() {
     try {

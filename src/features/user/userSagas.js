@@ -6,7 +6,8 @@ import {
   loginUserSuccess,
   loginUserFailure,
 } from "./userSlice";
-const USER_URL = "https://backendmusicplayer-production.up.railway.app/music";
+const USER_URL =
+  "https://musiccollectionbackend-production-78ae.up.railway.app/user";
 
 function* addNewUserSaga(action) {
   const { username, email, password } = action.payload;
