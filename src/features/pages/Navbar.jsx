@@ -32,7 +32,11 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1em;
-  background-color: #333;
+  background: linear-gradient(
+    rgba(208, 164, 142, 0.4),
+    rgba(197, 150, 123, 0.6),
+    rgba(180, 137, 114, 0.4)
+  );
   color: #fff;
   position: sticky;
   top: 0;

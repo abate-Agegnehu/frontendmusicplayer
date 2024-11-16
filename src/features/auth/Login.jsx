@@ -11,7 +11,8 @@ const Container = styled("div")({
   alignItems: "center",
   height: "100vh",
   width: "100%",
-  backgroundColor: "#f4f4f4",
+  background:
+    "linear-gradient( rgba(208, 164, 142, 0.1), rgba(197, 150, 123, 0.2), rgba(180, 137, 114, 0.1) )",
 });
 
 const FormContainer = styled("div")({
@@ -24,7 +25,8 @@ const FormContainer = styled("div")({
   width: "100%",
   maxWidth: "400px",
   margin: "0 auto",
-  backgroundColor: "#fff",
+  background:
+    "linear-gradient( rgba(208, 164, 142, 0.4), rgba(197, 150, 123, 0.6), rgba(180, 137, 114, 0.4) )",
 });
 
 const Input = styled("input")({
