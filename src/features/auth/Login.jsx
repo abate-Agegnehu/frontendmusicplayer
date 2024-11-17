@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser, getUserError, getUserStatus } from "../user/userSlice";
 import { Link, useNavigate } from "react-router-dom";
@@ -79,14 +79,14 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(loginUser({ email, password })); 
+    dispatch(loginUser({ email, password }));
   };
   useEffect(() => {
     if (status === "succeeded") {
-      navigate("/musiclist"); 
+      navigate("/musiclist");
       sessionStorage.setItem("userEmail", email);
     }
-  }, [status, navigate,email]);
+  }, [status, navigate, email]);
 
   return (
     <Container>
