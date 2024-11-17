@@ -86,7 +86,7 @@ const Login = () => {
       navigate("/musiclist"); 
       sessionStorage.setItem("userEmail", email);
     }
-  }, [status, navigate]);
+  }, [status, navigate,email]);
 
   return (
     <Container>
