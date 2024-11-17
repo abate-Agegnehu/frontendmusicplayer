@@ -25,12 +25,12 @@ const FormContainer = styled("div")({
   width: "100%",
   maxWidth: "400px",
   margin: "0 auto",
-  background: "rgba(255, 255, 255, 0.8)",
+  background: "rgba(255, 255, 255, 0.1)",
   zIndex: "1",
 });
 
 const H2 = styled("h2")({
-  color: "#4b5d46",
+  color: "#AF1740",
 });
 
 const Input = styled("input")({
@@ -67,6 +67,9 @@ const ErrorMessage = styled("p")({
   color: "red",
   fontSize: "1rem",
   marginBottom: "1rem",
+});
+const P = styled("p")({
+  color: "gold",
 });
 
 const Login = () => {
@@ -116,9 +119,21 @@ const Login = () => {
             {status === "loading" ? "Logging in..." : "Login"}
           </Button>
         </form>
-        <p>
-          Don't have an account? <Link to={"/signup"}>Sign Up</Link>
-        </p>
+        <P>
+          Don't have an account?{" "}
+          <Link
+            to={"/signup"}
+            style={{
+              color: "white",
+              textDecoration: "none",
+              border: "1px solid white",
+              borderRadius: "3px",
+              padding: "2px",
+            }}
+          >
+            Sign Up
+          </Link>
+        </P>
       </FormContainer>
     </Container>
   );

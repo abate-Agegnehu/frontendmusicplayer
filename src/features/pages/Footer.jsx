@@ -14,12 +14,13 @@ const FooterContainer = styled.footer`
   justify-content: center;
   align-items: center;
   padding: 0.3em;
-  background: linear-gradient(
-    rgba(208, 164, 142, 0.4),
-    rgba(197, 150, 123, 0.4),
-    rgba(180, 137, 114, 0.05)
-  );
-  color: #4b5d46;
+  // background: linear-gradient(
+  //   rgba(208, 164, 142, 0.4),
+  //   rgba(197, 150, 123, 0.4),
+  //   rgba(180, 137, 114, 0.05)
+  // );
+   background: "rgba(255, 255, 255, 0.1)";
+  color: lightgray;
 `;
 
 export default Footer;

@@ -25,7 +25,7 @@ const FormContainer = styled("div")({
   margin: "0 auto",
 });
 const H2 = styled("h2")({
-  color: "#4b5d46",
+  color: "gold",
 });
 
 const Input = styled("input")({

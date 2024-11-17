@@ -10,7 +10,7 @@ const Container = styled("div")({
   justifyContent: "center",
   alignItems: "center",
   height: "100vh",
-  backgroundColor: "#f4f4f4",
+  color: "gold",
 });
 
 const FormContainer = styled("div")({
@@ -20,8 +20,8 @@ const FormContainer = styled("div")({
   padding: "2rem",
   border: "1px solid #ddd",
   borderRadius: "8px",
-  backgroundColor: "#fff",
   width: "100%",
+  background: "rgba(255, 255, 255, 0.1)",
   maxWidth: "500px",
 });
 

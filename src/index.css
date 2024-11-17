@@ -5,11 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-   background: linear-gradient(
-    rgba(208, 164, 142, 0.1),
-    rgba(197, 150, 123, 0.2),
-    rgba(180, 137, 114, 0.1)
-  );
+   background-image: url("./features/auth/music.jpeg");
+   background-size: cover;
+  background-position: center; /* Center the image */
+  background-attachment: fixed; /* Optional: Makes the background fixed while scrolling */
 }
 
 code {

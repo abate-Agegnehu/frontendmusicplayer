@@ -43,12 +43,12 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1em;
-  background: linear-gradient(
-    rgba(208, 164, 142, 0.4),
-    rgba(197, 150, 123, 0.4),
-    rgba(180, 137, 114, 0.05)
-  );
-  color: #4b5d46;
+  // background: linear-gradient(
+  //   rgba(208, 164, 142, 0.4),
+  //   rgba(197, 150, 123, 0.4),
+  //   rgba(180, 137, 114, 0.05)
+  // );
+  color: gold;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -97,7 +97,7 @@ const StyledLink = styled(Link)`
   ${space}
   ${color}
   margin: 0 10px;
-  color: #4b5d46;
+  color: gold;
   text-decoration: none;
 
   &:hover {
