@@ -1,14 +1,23 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
+import { useDispatch } from "react-redux";
+import { logoutUser } from "../user/userSlice";
 import { space, color, typography, flexbox } from "styled-system";
 
-// Responsive Navbar component
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("userEmail");
+    dispatch(logoutUser());
+    navigate("/");
+  };
 
   return (
     <StyledNav>
@@ -18,7 +27,9 @@ const Navbar = () => {
         <StyledLink to="/musiclist">Home</StyledLink>
         <StyledLink to="/myplaylist">My Playlist</StyledLink>
         <StyledLink to="/addsong">Add Song</StyledLink>
-        <StyledLink to="/">Log Out</StyledLink>
+        <StyledLink to="/" onClick={handleLogout}>
+          Log Out
+        </StyledLink>
       </NavLinks>
     </StyledNav>
   );
@@ -37,7 +48,7 @@ const StyledNav = styled.nav`
     rgba(197, 150, 123, 0.4),
     rgba(180, 137, 114, 0.05)
   );
-  color: #4B5D46;
+  color: #4b5d46;
   position: sticky;
   top: 0;
   z-index: 1000;

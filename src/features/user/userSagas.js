@@ -33,12 +33,14 @@ function* loginUserSaga(action) {
     });
 
     if (response.data.isAuthenticated) {
-      yield put(loginUserSuccess());
+      yield put(loginUserSuccess(response.data));
     } else {
-      yield put(loginUserFailure("Invalid email or password"));
+      yield put(loginUserFailure("Invalid email or password")); 
     }
   } catch (error) {
-    yield put(loginUserFailure(error.message));
+    yield put(
+      loginUserFailure(error.response?.data?.message || "Server error")
+    ); 
   }
 }
 

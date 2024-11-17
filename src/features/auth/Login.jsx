@@ -1,22 +1,20 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { loginUser } from "../user/userSlice";
+import React, { useState ,useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser, getUserError, getUserStatus } from "../user/userSlice";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 
-// Container with background video
 const Container = styled("div")({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   height: "100vh",
   width: "100%",
-  position: "relative", // Required to place the video behind the content
-  overflow: "hidden", // To prevent any overflow of video
+  position: "relative",
+  overflow: "hidden",
 });
 
-// Form container styles
 const FormContainer = styled("div")({
   display: "flex",
   flexDirection: "column",
@@ -27,9 +25,8 @@ const FormContainer = styled("div")({
   width: "100%",
   maxWidth: "400px",
   margin: "0 auto",
-  background:
-    "linear-gradient( rgba(208, 164, 142, 0.4), rgba(197, 150, 123, 0.6), rgba(180, 137, 114, 0.4) )",
-  zIndex: "1", // Ensure the form is above the video
+  background: "rgba(255, 255, 255, 0.8)",
+  zIndex: "1",
 });
 
 const H2 = styled("h2")({
@@ -77,26 +74,25 @@ const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+  const error = useSelector(getUserError);
+  const status = useSelector(getUserStatus);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await dispatch(loginUser({ email, password }));
-      sessionStorage.setItem("userEmail", email);
-      navigate("/musiclist");
-    } catch (err) {
-      console.log(err);
-      setError("Failed to login. Please try again.");
-    }
+    dispatch(loginUser({ email, password })); 
   };
+  useEffect(() => {
+    if (status === "succeeded") {
+      navigate("/musiclist"); 
+      sessionStorage.setItem("userEmail", email);
+    }
+  }, [status, navigate]);
 
   return (
     <Container>
-   
       <FormContainer>
         <H2>Login</H2>
-        {error && <ErrorMessage>{error}</ErrorMessage>}
+        {status === "failed" && error && <ErrorMessage>{error}</ErrorMessage>}
         <form onSubmit={handleSubmit}>
           <div>
             <Input
@@ -116,7 +112,9 @@ const Login = () => {
               required
             />
           </div>
-          <Button type="submit">Login</Button>
+          <Button type="submit" disabled={status === "loading"}>
+            {status === "loading" ? "Logging in..." : "Login"}
+          </Button>
         </form>
         <p>
           Don't have an account? <Link to={"/signup"}>Sign Up</Link>

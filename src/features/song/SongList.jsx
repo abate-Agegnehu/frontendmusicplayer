@@ -54,9 +54,9 @@ const SongArtist = styled("p")({
 const MediaContainer = styled("div")({
   marginTop: "0.5rem",
   width: "100%",
-  height: "70%", // Set the media height to 70% of the song item
+  height: "70%",
   display: "flex",
-  justifyContent: "center", // Centering the media
+  justifyContent: "center",
   alignItems: "center",
 });
 
@@ -102,8 +102,8 @@ const SongList = () => {
               {isVideo(song.avatar) ? (
                 <video
                   ref={(el) => (mediaRefs.current[index] = el)}
-                  width="100%" // Ensure it takes full width of the container
-                  height="100%" // Ensure it takes full height of the container
+                  width="100%"
+                  height="100%"
                   controls
                   onPlay={() => handleMediaClick(index)}
                 >
@@ -115,7 +115,7 @@ const SongList = () => {
                   ref={(el) => (mediaRefs.current[index] = el)}
                   controls
                   onPlay={() => handleMediaClick(index)}
-                  style={{ width: "100%" }} // Ensure audio player takes full width
+                  style={{ width: "100%" }}
                 >
                   <source src={song.avatar} type="audio/mp3" />
                   Your browser does not support the audio tag.

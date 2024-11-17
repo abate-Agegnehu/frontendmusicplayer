@@ -4,25 +4,12 @@ const initialState = {
   users: [],
   status: "idle",
   error: null,
-  isAuthenticated: false,
-  mode: "login",
 };
 
 const userSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
-    fetchUsers: (state) => {
-      state.status = "loading";
-    },
-    fetchUsersSuccess: (state, action) => {
-      state.status = "succeeded";
-      state.users = action.payload;
-    },
-    fetchUsersFailure: (state, action) => {
-      state.status = "failed";
-      state.error = action.payload;
-    },
     addNewUser: (state) => {
       state.status = "loading";
     },
@@ -36,42 +23,38 @@ const userSlice = createSlice({
     },
     loginUser: (state) => {
       state.status = "loading";
+      state.error = null; 
     },
-    loginUserSuccess: (state) => {
-      state.isAuthenticated = true;
+    loginUserSuccess: (state, action) => {
+      state.user = action.payload;
       state.status = "succeeded";
+      state.error = null; 
     },
     loginUserFailure: (state, action) => {
+      state.user = null;
       state.status = "failed";
       state.error = action.payload;
     },
-    logout: (state) => {
-      state.isAuthenticated = false;
-    },
-    toggleMode: (state) => {
-      state.mode = state.mode === "login" ? "signup" : "login";
+    logoutUser: (state) => {
+      state.user = null; 
+      state.status = "idle"; 
+      state.error = null; 
     },
   },
 });
 
 export const {
-  fetchUsers,
-  fetchUsersSuccess,
-  fetchUsersFailure,
   addNewUser,
   addNewUserSuccess,
   addNewUserFailure,
   loginUser,
   loginUserSuccess,
   loginUserFailure,
-  logout,
-  toggleMode,
+  logoutUser,
 } = userSlice.actions;
 
-export const selectAllUsers = (state) => state.users.users;
 export const getUserStatus = (state) => state.users.status;
 export const getUserError = (state) => state.users.error;
-export const getIsAuthenticated = (state) => state.users.isAuthenticated;
-export const selectMode = (state) => state.users.mode;
+export const getLoggedInUser = (state) => state.users.user;
 
 export default userSlice.reducer;

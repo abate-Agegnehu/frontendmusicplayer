@@ -80,7 +80,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       await dispatch(addNewUser({ username, email, password }));
-      navigate("/login"); // Redirect to login after successful signup
+      navigate("/");
     } catch (err) {
       console.error("Signup failed:", err);
       setError("Failed to sign up. Please try again.");
