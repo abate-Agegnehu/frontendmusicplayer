@@ -69,7 +69,7 @@ const ErrorMessage = styled("p")({
   marginBottom: "1rem",
 });
 const P = styled("p")({
-  color: "gold",
+  color: "purple",
 });
 
 const Login = () => {
@@ -125,6 +125,7 @@ const Login = () => {
             to={"/signup"}
             style={{
               color: "white",
+              background: "#ff66cc",
               textDecoration: "none",
               border: "1px solid white",
               borderRadius: "3px",

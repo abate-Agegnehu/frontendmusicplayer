@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <StyledNav>
-      <Title>Music Collection</Title>
+      <Title>Music Collections</Title>
       <Hamburger onClick={toggleMenu}>☰</Hamburger>
       <NavLinks isOpen={isOpen}>
         <StyledLink to="/musiclist">Home</StyledLink>
