@@ -4,33 +4,42 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser, getUserError, getUserStatus } from "../user/userSlice";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
+import musicImage from "./music.jpg";
 
 const Container = styled("div")({
   display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
   height: "100vh",
   width: "100%",
-  position: "relative",
   overflow: "hidden",
+  background: "#1B2A34",
+});
+
+const ImageContainer = styled("div")({
+  flex: 1, // Ensures equal width
+  height: "100%", // Full height of the container
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+});
+
+const StyledImage = styled("img")({
+  width: "100%", // Ensures the image spans the full width
+  height: "100%", // Ensures the image spans the full height
+  objectFit: "cover", // Covers the container without distortion
 });
 
 const FormContainer = styled("div")({
+  flex: 1, // Ensures equal width
+  height: "100%", // Full height of the container
   display: "flex",
   flexDirection: "column",
+  justifyContent: "center",
   alignItems: "center",
-  padding: "2rem",
-  border: "1px solid #ddd",
-  borderRadius: "8px",
-  width: "100%",
-  maxWidth: "400px",
-  margin: "0 auto",
-  background: "rgba(255, 255, 255, 0.1)",
-  zIndex: "1",
+  background: "#1B2A34",
 });
 
 const H2 = styled("h2")({
-  color: "#AF1740",
+  color: "lightgray",
 });
 
 const Input = styled("input")({
@@ -68,8 +77,9 @@ const ErrorMessage = styled("p")({
   fontSize: "1rem",
   marginBottom: "1rem",
 });
+
 const P = styled("p")({
-  color: "purple",
+  color: "lightgray",
 });
 
 const Login = () => {
@@ -84,6 +94,7 @@ const Login = () => {
     e.preventDefault();
     dispatch(loginUser({ email, password }));
   };
+
   useEffect(() => {
     if (status === "succeeded") {
       navigate("/musiclist");
@@ -93,6 +104,9 @@ const Login = () => {
 
   return (
     <Container>
+      <ImageContainer>
+        <StyledImage src={musicImage} alt="Music" />
+      </ImageContainer>
       <FormContainer>
         <H2>Login</H2>
         {status === "failed" && error && <ErrorMessage>{error}</ErrorMessage>}
@@ -124,12 +138,12 @@ const Login = () => {
           <Link
             to={"/signup"}
             style={{
-              color: "white",
-              background: "#ff66cc",
+              color: "lightgray",
+              background: "#525B44",
               textDecoration: "none",
               border: "1px solid white",
               borderRadius: "3px",
-              padding: "2px",
+              padding: "5px",
             }}
           >
             Sign Up

@@ -10,7 +10,6 @@ html {
   display: flex;
   flex-direction: column;
   height: 100%;
-  color: rgb(242, 242, 245);
 }
 
 main {

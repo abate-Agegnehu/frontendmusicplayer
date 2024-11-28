@@ -31,6 +31,7 @@ const SongItem = styled("li")({
   width: "90%",
   border: "1px solid #ddd",
   borderRadius: "8px",
+  background:"#f7f3f0",
   "@media (min-width: 576px)": {
     flexDirection: "row",
     maxWidth: "44%",
@@ -43,13 +44,13 @@ const SongItem = styled("li")({
 const SongTitle = styled("h3")({
   fontSize: "18px",
   marginBottom: "0.5rem",
-  color: "lightgray",
+  color: "#575a5c",
 });
 
 const SongArtist = styled("p")({
   fontSize: "16px",
   marginBottom: "0.5rem",
-  color: "lightgray",
+  color: "#575a5c",
 });
 
 const MediaContainer = styled("div")({

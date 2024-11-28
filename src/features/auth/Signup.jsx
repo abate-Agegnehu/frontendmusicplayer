@@ -11,6 +11,7 @@ const Container = styled("div")({
   alignItems: "center",
   height: "100vh",
   width: "100%",
+  background: "#1B2A34",
 });
 
 const FormContainer = styled("div")({
@@ -26,7 +27,7 @@ const FormContainer = styled("div")({
   background: "rgba(255, 255, 255, 0.1)",
 });
 const H2 = styled("h2")({
-  color: "gold",
+  color: "lightgray",
 });
 
 const Input = styled("input")({
