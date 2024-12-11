@@ -12,34 +12,48 @@ const Container = styled("div")({
   width: "100%",
   overflow: "hidden",
   background: "#1B2A34",
+  "@media (max-width: 768px)": {
+    flexDirection: "column",
+  },
 });
 
 const ImageContainer = styled("div")({
-  flex: 1, // Ensures equal width
-  height: "100%", // Full height of the container
+  flex: 1,
+  height: "100%",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  "@media (max-width: 768px)": {
+    height: "50%",
+  },
 });
 
 const StyledImage = styled("img")({
-  width: "100%", // Ensures the image spans the full width
-  height: "100%", // Ensures the image spans the full height
-  objectFit: "cover", // Covers the container without distortion
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
 });
 
 const FormContainer = styled("div")({
-  flex: 1, // Ensures equal width
-  height: "100%", // Full height of the container
+  flex: 1,
+  height: "100%",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
   background: "#1B2A34",
+  padding: "1rem",
+  "@media (max-width: 768px)": {
+    height: "50%",
+  },
 });
 
 const H2 = styled("h2")({
   color: "lightgray",
+  fontSize: "2rem",
+  "@media (max-width: 480px)": {
+    fontSize: "1.5rem",
+  },
 });
 
 const Input = styled("input")({
@@ -47,11 +61,15 @@ const Input = styled("input")({
   padding: "0.75rem",
   fontSize: "1rem",
   width: "100%",
+  maxWidth: "400px",
   border: "1px solid #ccc",
   borderRadius: "4px",
   "&:focus": {
     borderColor: "#007BFF",
     outline: "none",
+  },
+  "@media (max-width: 480px)": {
+    fontSize: "0.9rem",
   },
 });
 
@@ -70,16 +88,23 @@ const Button = styled("button")({
     backgroundColor: "#cccccc",
     cursor: "not-allowed",
   },
+  "@media (max-width: 480px)": {
+    fontSize: "0.9rem",
+  },
 });
 
 const ErrorMessage = styled("p")({
   color: "red",
   fontSize: "1rem",
   marginBottom: "1rem",
+  "@media (max-width: 480px)": {
+    fontSize: "0.9rem",
+  },
 });
 
 const P = styled("p")({
   color: "lightgray",
+  textAlign: "center",
 });
 
 const Login = () => {

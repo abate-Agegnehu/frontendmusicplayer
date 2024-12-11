@@ -86,7 +86,7 @@ const Button = styled("button")(({ variant }) => ({
       variant === "delete"
         ? "#c82333"
         : variant === "update"
-        ? "transparent" // Adjusting hover background for update
+        ? "transparent" 
         : "#0056b3",
   },
 }));

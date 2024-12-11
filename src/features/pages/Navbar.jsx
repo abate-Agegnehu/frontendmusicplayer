@@ -7,7 +7,7 @@ import { logoutUser } from "../user/userSlice";
 import { space, color, typography, flexbox } from "styled-system";
 
 const Navbar = () => {
-  const [isAnimating, setIsAnimating] = useState(false); // Track if animation is active
+  const [isAnimating, setIsAnimating] = useState(false); 
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -22,9 +22,8 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Start animation when user scrolls
       setIsAnimating(true);
-      setTimeout(() => setIsAnimating(false), 500); // Reset after animation duration
+      setTimeout(() => setIsAnimating(false), 500); 
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -60,9 +59,7 @@ const StyledNav = styled.nav`
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: transform 0.4s ease-in-out; /* Smooth animation for scroll */
-
-  /* Animate slight scroll up and return */
+  transition: transform 0.4s ease-in-out; 
   transform: ${({ isAnimating }) =>
     isAnimating ? "translateY(-10px)" : "translateY(0)"};
 

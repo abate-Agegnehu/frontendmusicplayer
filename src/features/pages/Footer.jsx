@@ -13,24 +13,23 @@ const FooterContainer = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2em; /* Increased padding for better spacing */
-  background: #f7f3f0; /* Fixed color syntax */
+  padding: 2em; 
+  background: #f7f3f0;
   color: #575a5c;
-  border-top: 1px solid #ddd; /* Optional: Add a subtle border for separation */
+  border-top: 1px solid #ddd;
   bottom: 0;
   width: 100%;
 
-  /* Responsive text alignment */
   @media (max-width: 768px) {
     text-align: center;
-    font-size: 14px; /* Adjust font size for smaller screens */
+    font-size: 14px; 
   }
 `;
 
 const FooterText = styled.p`
   margin: 0;
-  font-size: 16px; /* Slightly larger font for readability */
-  font-weight: 400; /* Adjust font weight for a clean appearance */
+  font-size: 16px;
+  font-weight: 400; 
 `;
 
 export default Footer;
