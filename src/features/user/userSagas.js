@@ -6,8 +6,7 @@ import {
   loginUserSuccess,
   loginUserFailure,
 } from "./userSlice";
-const USER_URL =
-  "https://musiccollectionbackend-production-78ae.up.railway.app/user";
+const USER_URL = "http://localhost:9999/user";
 
 function* addNewUserSaga(action) {
   const { username, email, password } = action.payload;
@@ -35,12 +34,12 @@ function* loginUserSaga(action) {
     if (response.data.isAuthenticated) {
       yield put(loginUserSuccess(response.data));
     } else {
-      yield put(loginUserFailure("Invalid email or password")); 
+      yield put(loginUserFailure("Invalid email or password"));
     }
   } catch (error) {
     yield put(
       loginUserFailure(error.response?.data?.message || "Server error")
-    ); 
+    );
   }
 }
 
