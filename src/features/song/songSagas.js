@@ -11,7 +11,7 @@ import {
   updateSongFailure,
 } from "./songSlice";
 
-const SONG_URL = "http://localhost:9999/music";
+const SONG_URL = "https://musiccollectionbackend.vercel.app/music";
 
 function* fetchSongsSaga() {
   try {

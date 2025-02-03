@@ -6,7 +6,7 @@ import {
   loginUserSuccess,
   loginUserFailure,
 } from "./userSlice";
-const USER_URL = "http://localhost:9999/user";
+const USER_URL = "https://musiccollectionbackend.vercel.app/user";
 
 function* addNewUserSaga(action) {
   const { username, email, password } = action.payload;
